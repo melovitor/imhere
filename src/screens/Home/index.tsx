@@ -1,17 +1,13 @@
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import {Text, TextInput, TouchableOpacity, View, FlatList, Alert} from 'react-native';
 import { styles } from './styles';
 import { Participant } from '../../components/Participant';
-
 export function Home(){
     const [participants, setParticipants] = useState<string[]>([]);
     const [participantName, setParticipantName] = useState('');
 
 
-    function handleParticipantAdd(){
-        
-
-
+    function handleParticipantAdd(){      
         if(participants.includes(participantName)){
             return Alert.alert('Participante já existente!', 'Este participante já está adicionado à sua lista.')
         }
@@ -19,10 +15,12 @@ export function Home(){
         setParticipantName('')
     }
     function handleParticipantRemove(name: string){
+        
+
         Alert.alert('Remover participante',`Deseja remover ${name} de sua lista?`, [
             {
                 text: 'Sim',
-                onPress: () => Alert.alert('Participante removido')
+                onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
             },
             {
                 text: 'Não',
@@ -34,8 +32,8 @@ export function Home(){
 
   return(
     <View style={styles.container}>
-        <Text style={styles.eventName}>Nome do evento</Text>
-        <Text style={styles.eventDate}>Quinta, 16 de Março de 2023.</Text>
+        <Text style={styles.eventName}>Evento</Text>
+        <Text style={styles.eventDate}>Sábado, 18 de Março de 2023.</Text>
 
         <View style={styles.form}>
             <TextInput 
