@@ -1,9 +1,6 @@
 # Ignite [ImHere]
 
-![preview](./preview/empty.jpeg)
-![preview](./preview/add.jpeg)
-![preview](./preview/addAlert.jpeg)
-![preview](./preview/removeAlert.jpeg)
+![preview](./screens.png)
 
 
 # > React Native
